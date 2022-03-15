@@ -1,0 +1,53 @@
+{% extends 'blog/base.html' %}
+
+{% block side %}
+<div class="col-md-2">
+    <h4>Profile</h4>
+    <p>{{name}}</p>
+    {% for group in groups %}
+    <p>{{group|title}}</p>
+    
+    {% endfor %}
+</div>
+{% endblock side %}
+
+{% block content %}
+
+<div class="col-md-10">
+
+    <h1>Dashboard</h1>
+<a href="{% url 'addPost' %}" class="btn btn-success my-5">Add Post</a>
+    
+    <p class="alert alert-info">Show Posts</p>
+    <table class="table table-hover">
+        <thead>
+          <tr>
+            <th style="width:2%" scope="col">Id</th>
+            <th style="width:20%" scope="col">Title</th>
+            <th style="width:63%" scope="col">Descreption</th>
+            <th style="width:15%" scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+            {% if post %}
+            {% for pst in post %}
+          <tr>
+            <th  scope="row">{{pst.id}}</th>
+            <td >{{pst.title}}</td>
+            <td>{{pst.desc}}</td>
+            <td>
+                <a href="{% url 'updatePost' pst.id %}" class="btn btn-sm btn-success">Edit</a>
+                {% if perms.blog.post_delete %}
+                <a href="{% url 'deletePost' pst.id %}" class="btn btn-sm btn-danger">Delete</a>
+                {% endif %}
+            </td>
+          </tr>
+          {% endfor %}
+          {% else %}
+          <p>No data</p>
+          {% endif %}
+         
+        </tbody>
+      </table>
+</div>
+{% endblock content %}

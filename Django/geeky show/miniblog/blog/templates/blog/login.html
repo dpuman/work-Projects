@@ -1,0 +1,30 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+<div class="col-md-6 shadow p-3">
+    <h3 class="text-center">Login</h3>
+    {% if messages %}
+    {% for message in messages %}
+    <p  {% if message.tags %} class="alert alert-{{message.tags}}"{% endif %} >{{message}}</p>
+    {% endfor %}
+    {% endif %}
+    <form class=' ' action="" method="post">
+        {% csrf_token %}
+        
+            {% for fm in form %}
+            <div class="mb-3">
+            {{fm.label_tag}} {{fm}} {{fm.errors|striptags}}
+        </div>
+            {% endfor %}
+        
+
+        {% if form.non_field_errors %}
+        {% for error in form.non_field_errors %}
+            <p class='alert alert-warning' >{{error}}</p>
+        {% endfor %}
+        {% endif %}
+
+        <input class="btn btn-success " type="submit" value="Login">
+    </form>
+</div>
+{% endblock content %}

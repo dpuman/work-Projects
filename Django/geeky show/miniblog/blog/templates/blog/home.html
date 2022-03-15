@@ -1,0 +1,24 @@
+{% extends 'blog/base.html' %}
+{% block content %}
+<div class="col-md-12">
+    <h1>Home Page</h1>
+    <main>
+        <div class="container py-4">
+          
+          {% for pst in post %}
+          <div class="p-5 mb-4 bg-light rounded-3">
+            <div class="container-fluid py-5">
+              <h1 class="display-5 fw-bold">{{pst.title}}</h1>
+              <p class="col-md-8 fs-4">{{pst.desc}}</p>
+              
+            </div>
+          </div>
+          {% endfor %}
+      
+         
+      
+        </div>
+      </main>
+
+</div>
+{% endblock content %}
