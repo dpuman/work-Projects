@@ -27,6 +27,9 @@ def dashboard(request):
         groups = user.groups.all()
         post = Post.objects.all()
         ct = cache.get('count', 0, version=user.pk)
+        print("+"*100)
+        print(full_name, ct)
+        print(ct)
 
         return render(request, 'blog/dashboard.html', {'post': post, 'name': full_name, 'groups': groups, 'ct': ct})
     else:
