@@ -1,0 +1,94 @@
+let nav = document.getElementById('nav');
+let container = document.getElementById("container");
+
+nav.addEventListener("click", (e) => {
+    let btn = e.target
+    console.log(nav);
+
+    if (btn.id === "btn-1") {
+        document.getElementById("btn-2").classList.remove("btn-background");
+        document.getElementById("btn-3").classList.remove("btn-background");
+
+        btn.classList.add("btn-background");
+        layoutOne();
+    }
+    else if (btn.id === "btn-2") {
+        document.getElementById("btn-1").classList.remove("btn-background");
+        document.getElementById("btn-3").classList.remove("btn-background");
+
+        btn.classList.add("btn-background");
+
+        layoutTwo();
+
+    }
+    else if (btn.id === "btn-3") {
+        document.getElementById("btn-1").classList.remove("btn-background");
+        document.getElementById("btn-2").classList.remove("btn-background");
+
+        btn.classList.add("btn-background");
+        layoutThree();
+
+    }
+
+
+})
+
+
+const layoutOne = () => {
+
+    document.getElementById("container").classList.remove("container-layout-2", "container-layout-3");
+
+    const card = document.querySelectorAll(".card");
+
+    card.forEach(crd => {
+        crd.classList.remove("layout-2", "layout-3");
+        crd.classList.add("layout-1");
+    });
+
+    for (i = 0; i < card.length; i++) {
+        card[i].classList.remove(`layout-${i}-card`);
+    }
+
+}
+
+const layoutTwo = () => {
+    document.getElementById("container").classList.remove("container-layout-3");
+
+    const container = document.getElementById("container");
+    container.classList.add("container-layout-2");
+
+    const card = document.querySelectorAll(".card");
+
+    card.forEach(crd => {
+        crd.classList.remove("layout-1", "layout-3");
+        crd.classList.add("layout-2");
+    });
+
+    for (i = 0; i < card.length; i++) {
+        console.log(card[i]);
+        card[i].classList.remove(`layout-${i}-card`);
+    }
+}
+
+
+
+const layoutThree = () => {
+    document.getElementById("container").classList.remove("container-layout-2");
+
+    const container = document.getElementById("container");
+    container.classList.add("container-layout-3");
+
+    const card = document.querySelectorAll(".card");
+
+    card.forEach(crd => {
+        crd.classList.remove("layout-1", "layout-2")
+        crd.classList.add("layout-3")
+    });
+
+    for (i = 0; i < card.length; i++) {
+        console.log(card[i]);
+        card[i].classList.add(`layout-${i}-card`)
+    }
+
+
+}

@@ -1,0 +1,104 @@
+body {
+    font-family: 'Raleway', sans-serif;
+}
+
+:root {
+    --light-grey: #e0e0e0;
+    --dark-grey: #606060;
+    --red-bg: #da1e5d;
+}
+
+#nav button{
+    padding:10px 20px;
+    left: 392.73px;
+    top: 81px;
+    color: #606060;
+    border-radius: 10px;
+    border:none;
+    cursor: pointer;
+}
+
+#nav .btn-background{
+    color: white ;
+    background-color: #606060;
+  
+}
+
+/* Layout  one ++++++++++++ */
+.layout-1{
+    background-color: #DA1E5D;
+    color:white;
+    border-radius: 10px;
+
+    
+}
+
+.layout-1 h2{
+    text-align: center;
+    padding:30px;
+    font-size: small;
+}
+
+/* Layout Two */
+
+.container-layout-2{
+    display:flex;
+    flex-wrap: wrap;
+    gap:5px;
+    padding: 5px;
+    
+    
+}
+
+.layout-2{
+    background-color: #DA1E5D;
+    color:white;
+    border-radius: 10px;
+    height: 300px;
+    width: 430px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+
+/* Layout Three*/
+.container-layout-3{
+    padding: 10px;
+    height:100%;
+    display: grid;
+    grid-template-columns: repeat(12,1fr);
+    grid-template-rows: 120px 419px 120px;
+    grid-gap: 10px;
+}
+
+.layout-0-card{
+grid-column: 1 / -1;
+}
+.layout-1-card{
+    grid-column: 1 / 4;
+}
+.layout-2-card{
+    grid-column: 4 / 10;
+}
+.layout-3-card{
+    grid-column: 10 / 13;
+}
+.layout-4-card{
+    grid-column: 1 / -1;
+}
+
+.layout-3{
+    background-color: #DA1E5D;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+
+
+
+
